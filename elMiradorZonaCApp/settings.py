@@ -27,7 +27,7 @@ SECRET_KEY = os.getenv('KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = ['elmiradorzonac.pythonanywhere.com']
+ALLOWED_HOSTS = ['elmiradorzonac.pythonanywhere.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "socios.apps.SociosConfig",
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,4 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+AUTH_USER_MODEL = "socios.Socio"
