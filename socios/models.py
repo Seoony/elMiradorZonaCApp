@@ -1,4 +1,5 @@
 from django.db import models
+from terrenos.models import Terreno
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 
 class CustomSocioManager(BaseUserManager):
@@ -44,6 +45,9 @@ class Socio(AbstractBaseUser, PermissionsMixin):
   apellido_pat = models.CharField(max_length=31)
   apellido_mat = models.CharField(max_length=31)
   fecha_nacimiento = models.DateField()
+  terreno = models.ForeignKey(
+    Terreno, on_delete=models.SET_NULL,
+    null=True, blank=True, related_name='socio_terreno')
   direccion = models.CharField(max_length=100, default="Asoc. de Vivienda \"El Mirador Zona C\" Mz-A Lt-1")
   celular = models.CharField(max_length=9)
   #fecha_ingreso = models.DateField()

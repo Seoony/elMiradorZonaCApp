@@ -30,14 +30,14 @@ class Terreno (models.Model):
   disponible = models.BooleanField(default=True)
   socio = models.ForeignKey(
     'socios.Socio', on_delete=models.SET_NULL,
-    null=True, blank=True, related_name='socio')
+    null=True, blank=True, related_name='socio_asignado')
   observaciones = models.TextField(default="Ninguna")
   creado_por = models.ForeignKey(
     'socios.Socio', on_delete=models.SET_NULL,
-    null=True, blank=True, related_name='creado_por')
+    null=True, blank=True, related_name='terreno_creado_por')
   modificado_por = models.ForeignKey(
     'socios.Socio', on_delete=models.SET_NULL,
-    null=True, blank=True, related_name='modificado_por')
+    null=True, blank=True, related_name='terreno_modificado_por')
   ultima_modificacion = models.DateTimeField(auto_now=True)
   estado = models.CharField(max_length=1, default="A")
   
